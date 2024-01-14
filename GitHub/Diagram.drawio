@@ -1,0 +1,101 @@
+<mxfile host="Electron" modified="2024-01-14T11:54:19.387Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.18 Chrome/120.0.6099.199 Electron/28.1.2 Safari/537.36" etag="1Lut3KmKqgtVneNIUefu" version="22.1.18" type="device">
+  <diagram name="Page-1" id="Tx2k7h0dfSWDiP1-D4Ww">
+    <mxGraphModel dx="1434" dy="824" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="QlW_lwyePMrYb8tsfpxh-1" target="QlW_lwyePMrYb8tsfpxh-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="400" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="200" y="360" />
+              <mxPoint x="200" y="190" />
+              <mxPoint x="980" y="190" />
+              <mxPoint x="980" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-20" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Game has no imported assets&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="QlW_lwyePMrYb8tsfpxh-2">
+          <mxGeometry x="0.3741" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="QlW_lwyePMrYb8tsfpxh-1" target="QlW_lwyePMrYb8tsfpxh-11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="QlW_lwyePMrYb8tsfpxh-1" target="QlW_lwyePMrYb8tsfpxh-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-1" value="The user who&lt;br&gt;wants to play&lt;br&gt;a game that&lt;br&gt;uses Source assets" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="320" width="40" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="QlW_lwyePMrYb8tsfpxh-4" target="QlW_lwyePMrYb8tsfpxh-22">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1920" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-24" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Game has imported assets&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="QlW_lwyePMrYb8tsfpxh-21">
+          <mxGeometry x="-0.0138" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-4" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Runs Godot game&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="170" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-6" value="The Game fails to launch because it has no Source assets imported yet&lt;br&gt;therefore, User has to own/buy a Source Engine game to run it." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" vertex="1" parent="1">
+          <mxGeometry x="1840" y="40" width="440" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-7" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;curved=1;" edge="1" parent="1" source="QlW_lwyePMrYb8tsfpxh-4" target="QlW_lwyePMrYb8tsfpxh-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1960" y="360" as="sourcePoint" />
+            <mxPoint x="2060" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-8" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Game has no imported assets&lt;/font&gt;" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="QlW_lwyePMrYb8tsfpxh-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="QlW_lwyePMrYb8tsfpxh-11" target="QlW_lwyePMrYb8tsfpxh-13">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-11" value="Buys a Source Engine game" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="200" y="330" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="QlW_lwyePMrYb8tsfpxh-13" target="QlW_lwyePMrYb8tsfpxh-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-13" value="Profits go to Source assets creator (Valve)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" vertex="1" parent="1">
+          <mxGeometry x="640" y="330" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;" edge="1" parent="1" source="QlW_lwyePMrYb8tsfpxh-15" target="QlW_lwyePMrYb8tsfpxh-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-15" value="Already owns Source Engine game" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="200" y="520" width="320" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-16" value="&lt;h1&gt;Half-Life 2 assets import process and why is it legal&lt;/h1&gt;&lt;p&gt;This is an example of how does an not Source-based game that uses Source Engine assets stays legal&lt;br&gt;Green rectangles prove this.&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="680" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;" edge="1" parent="1" source="QlW_lwyePMrYb8tsfpxh-17" target="QlW_lwyePMrYb8tsfpxh-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-26" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Game has imported assets&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="QlW_lwyePMrYb8tsfpxh-25">
+          <mxGeometry x="-0.015" y="-5" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-17" value="Does an importing process of Source Engine game assets to Godot game" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="880" y="330" width="413" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="QlW_lwyePMrYb8tsfpxh-22" value="The Game succesfully launched&lt;br&gt;therefore proving that user owns/paid for a Source Engine game" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" vertex="1" parent="1">
+          <mxGeometry x="1840" y="300" width="440" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
