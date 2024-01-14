@@ -183,9 +183,14 @@ def convertVMT(VMTtype: str, vmt: dict):
             print(termcolor.colored("Perhaps you missed something.", "red"))
             failcounter.append(file)
 
+    # Creating the GDMaterial process
+    counter += 1
+    gdmaterial += f'[gd_resource type="StandardMaterial3D" load_steps=5 format={resources.__len__() + 1} uid="uid://halflifinmaterial{counter}"]'
+    gdmaterial += "\n"
     for res in resources:
         gdmaterial += res + "\n"
     gdmaterial += "\n"
+    gdmaterial += "[resource]"
     for prop in properties:
         gdmaterial += prop + "\n"
     return gdmaterial
