@@ -191,6 +191,7 @@ def convertVMT(VMTtype: str, vmt: dict):
         gdmaterial += res + "\n"
     gdmaterial += "\n"
     gdmaterial += "[resource]"
+    gdmaterial += "\n"
     for prop in properties:
         gdmaterial += prop + "\n"
     return gdmaterial
