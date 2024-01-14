@@ -202,9 +202,12 @@ else:
         print(getVMT[1])
         print()
         os.makedirs(saveToFolder, exist_ok=True)
-        vmtfile = open(file, "x")
-        vmtfile.write(convertVMT(getVMT[1], getVMT[0]))
-        vmtfile.close()
+        try:
+            vmtfile = open(file, "x")
+            vmtfile.write(convertVMT(getVMT[1], getVMT[0]))
+            vmtfile.close()
+        except FileExistsError:
+            print(termcolor.colored("Material already exists in the saving directory! Ignoring i guess.", "red"))
         print("------------------------")
 
     print("-----------------------")
