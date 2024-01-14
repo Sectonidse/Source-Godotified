@@ -3,8 +3,8 @@ import pathlib
 from typing import AnyStr
 import termcolor
 import easygui_qt
-materialsFolder = easygui_qt.diropenbox(title="Select the root folder of Source's VMT materials.")
-saveToFolder = easygui_qt.diropenbox(title="Now, select the Materials folder of Godot game.")
+materialsFolder = easygui_qt.get_directory_name(title="Select the root folder of Source's VMT materials.")
+saveToFolder = easygui_qt.get_directory_name(title="Now, select the Materials folder of Godot game.")
 
 failcounter = []
 counter = 0
@@ -197,8 +197,8 @@ def convertVMT(VMTtype: str, vmt: dict):
 
 
 
-if materialsFolder is None or saveToFolder is None:
-    easygui_qt.msgbox("You didn't select one of the folders! You need to select them.", "Error!", "Close")
+if materialsFolder is "" or saveToFolder is "":
+    easygui_qt.show_text(text="You didn't select one of the folders! You need to select them.", title="Error!")
     print(termcolor.colored("You didn't select one of the folders! You need to select them."), "red")
 else:
     for VMT in pathlib.PosixPath(materialsFolder).rglob("*.vmt"):
