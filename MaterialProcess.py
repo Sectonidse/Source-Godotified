@@ -1,0 +1,217 @@
+import os.path
+import pathlib
+from typing import AnyStr
+import termcolor
+filetoopen = "materials/brick/brickfloor001a.vmt"
+
+failcounter = []
+counter = 0
+backslash = "\u005C" # BRUUUUH
+
+
+
+def readVMT(fileisVMT: AnyStr | pathlib.PosixPath):
+    '''Gets the contents of VMT. Returns a similarly looking VMT structure, but with Python guidelines.'''
+    global filetoopen
+    dictionary = {}
+    stack = []
+    vmttype = ""
+
+    with open(fileisVMT, 'r') as filetoopen:
+        for index, line in enumerate(filetoopen, start=0):
+            line = line.strip().replace('"', '').split(" ")
+            if index == 0: vmttype = line[0]
+            else:
+                # Skip empty lines
+                if not line:
+                    continue
+
+                # Skip comments (lines starting with "//")
+                if line[0].startswith("//"):
+                    continue
+
+                # Handle the start of a block
+                if line[0] == '{':
+                    if stack:
+                        current_block = stack[-1]
+                    else:
+                        current_block = dictionary
+                    stack.append(current_block)
+
+                # Handle key-value pairs
+                elif len(line) == 2 and line[0] != '}':
+                    key, value = line
+                    current_block[key] = value
+
+                # Handle the end of a block
+                elif line[0] == '}':
+                    stack.pop()
+
+    return dictionary, vmttype
+
+def convertVMT(VMTtype: str, vmt: dict):
+    '''Converts VMT into a Godot Material.'''
+    global counter
+    gdmaterial = '' # Main output
+    resources = [] # ext_resouce, mainly textures
+    properties = []
+
+    match VMTtype.lower():
+        case "lightmappedgeneric":
+            for key in vmt:
+                color = "1.0, 1.0, 1.0"
+                alpha = "1.0"
+                match key:
+                    # DONT FORGET TO ADD "counter += 1" AT THE END OF CASE IF YOU IMPORT A RESOURCE!!111
+                    case "$basetexture":
+                        resources.append(f'[ext_resource type="Texture2D" uid="uid://halflifintime{counter}" path="res://Materials/{vmt.get(key).replace(backslash, "/")}" id="{counter}_hl"')
+                        properties.append(f'albedo_texture = ExtResource("{counter}_hl")')
+                        counter += 1
+                    case "$detail":
+                        resources.append(f'[ext_resource type="Texture2D" uid="uid://halflifintime{counter}" path="res://Materials/{vmt.get(key).replace(backslash, "/")}" id="{counter}_hl"')
+                        properties.append('detail_enabled = true')
+                        properties.append(f'detail_albedo = ExtResource("{counter}_hl")')
+                        counter += 1
+                    case "$envmap":
+                        if vmt.get(key) == "env_cubemap": properties.append("metallic_specular = 1")
+                    case "$surfaceprop": properties.append(f'resource_name = {vmt.get(key)}')
+                    case "$color": color = vmt.get(key)
+                    case "$alpha": alpha = vmt.get(key)
+                    case "$detailblendmode":
+                        match vmt.get(key):
+                            case 1: properties.append(f'detail_blend_mode = 1')
+                            case 8: properties.append(f'detail_blend_mode = 3')
+                            case _: properties.append(f'detail_blend_mode = 0')
+                    case "$nocull":
+                        if vmt.get(key) == 1: properties.append("cull_mode = 2")
+                    case "$translucent": properties.append(f"transparency = {vmt.get(key)}")
+                    case "$bumpmap":
+                        resources.append(f'[ext_resource type="Texture2D" uid="uid://halflifintime{counter}" path="res://Materials/{vmt.get(key).replace(backslash, "/")}" id="{counter}_hl"')
+                        properties.append('normal_enabled = true')
+                        properties.append(f'normal_texture = ExtResource("{counter}_hl")')
+                        counter += 1
+                    case "$nofog":
+                        if vmt.get(key) == 1: properties.append('disable_fog = true')
+                    case _: print(termcolor.colored(f"Godot might not support {key} - ignoring.", "red"))
+                properties.append(f'albedo_color = Color({color}, {alpha})')
+        case "vertexlitgeneric":
+            for key in vmt:
+                color = "1.0, 1.0, 1.0"
+                alpha = "1.0"
+                match key:
+                    # DONT FORGET TO ADD "counter += 1" AT THE END OF CASE IF YOU IMPORT A RESOURCE!!111
+                    case "$basetexture":
+                        resources.append(f'[ext_resource type="Texture2D" uid="uid://halflifintime{counter}" path="res://Materials/{vmt.get(key).replace(backslash, "/")}" id="{counter}_hl"')
+                        properties.append(f'albedo_texture = ExtResource("{counter}_hl")')
+                        counter += 1
+                    case "$detail":
+                        resources.append(f'[ext_resource type="Texture2D" uid="uid://halflifintime{counter}" path="res://Materials/{vmt.get(key).replace(backslash, "/")}" id="{counter}_hl"')
+                        properties.append('detail_enabled = true')
+                        properties.append(f'detail_albedo = ExtResource("{counter}_hl")')
+                        counter += 1
+                    case "$envmap":
+                        if vmt.get(key) == "env_cubemap": properties.append("metallic_specular = 1")
+                    case "$color2": color = vmt.get(key)
+                    case "$alpha": alpha = vmt.get(key)
+                    case "$nocull":
+                        if vmt.get(key) == 1: properties.append("cull_mode = 2")
+                    case "$translucent": properties.append(f"transparency = {vmt.get(key)}")
+                    case "$bumpmap":
+                        resources.append(f'[ext_resource type="Texture2D" uid="uid://halflifintime{counter}" path="res://Materials/{vmt.get(key).replace(backslash, "/")}" id="{counter}_hl"')
+                        properties.append('normal_enabled = true')
+                        properties.append(f'normal_texture = ExtResource("{counter}_hl")')
+                        counter += 1
+                    case _: print(termcolor.colored(f"Godot might not support {key} - ignoring.", "red"))
+                properties.append(f'albedo_color = Color({color}, {alpha})')
+        case "unlitgeneric":
+            for key in vmt:
+                color = "1.0, 1.0, 1.0"
+                alpha = "1.0"
+                match key:
+                    # DONT FORGET TO ADD "counter += 1" AT THE END OF CASE IF YOU IMPORT A RESOURCE!!111
+                    case "$basetexture":
+                        resources.append(
+                            f'[ext_resource type="Texture2D" uid="uid://halflifintime{counter}" path="res://Materials/{vmt.get(key).replace(backslash, "/")}" id="{counter}_hl"')
+                        properties.append(f'albedo_texture = ExtResource("{counter}_hl")')
+                        counter += 1
+                    case "$color":
+                        color = vmt.get(key)
+                    case "$translucent": properties.append(f"transparency = {vmt.get(key)}")
+                    case "$alpha":
+                        alpha = vmt.get(key)
+                    case "$surfaceprop": properties.append(f'resource_name = {vmt.get(key)}')
+                    case _:
+                        print(termcolor.colored(f"Godot might not support {key} - ignoring.", "red"))
+                properties.append(f'albedo_color = Color({color}, {alpha})')
+                properties.append('disable_fog = true')
+        case "cable":
+            for key in vmt:
+                match key:
+                    # DONT FORGET TO ADD "counter += 1" AT THE END OF CASE IF YOU IMPORT A RESOURCE!!111
+                    case "$basetexture":
+                        resources.append(f'[ext_resource type="Texture2D" uid="uid://halflifintime{counter}" path="res://Materials/{vmt.get(key).replace(backslash, "/")}" id="{counter}_hl"')
+                        properties.append(f'albedo_texture = ExtResource("{counter}_hl")')
+                        counter += 1
+                    case "$nocull":
+                        if vmt.get(key) == 1: properties.append("cull_mode = 2")
+                    case "$bumpmap":
+                        resources.append(f'[ext_resource type="Texture2D" uid="uid://halflifintime{counter}" path="res://Materials/{vmt.get(key).replace(backslash, "/")}" id="{counter}_hl"')
+                        properties.append('normal_enabled = true')
+                        properties.append(f'normal_texture = ExtResource("{counter}_hl")')
+                        counter += 1
+                    case _: print(termcolor.colored(f"Godot might not support {key} - ignoring.", "red"))
+        case "teeth":
+            for key in vmt:
+                match key:
+                    # DONT FORGET TO ADD "counter += 1" AT THE END OF CASE IF YOU IMPORT A RESOURCE!!111
+                    case "$basetexture":
+                        resources.append(f'[ext_resource type="Texture2D" uid="uid://halflifintime{counter}" path="res://Materials/{vmt.get(key).replace(backslash, "/")}" id="{counter}_hl"')
+                        properties.append(f'albedo_texture = ExtResource("{counter}_hl")')
+                        counter += 1
+                    case _: print(termcolor.colored(f"Godot might not support {key} - ignoring.", "red"))
+        case "decalmodulate":
+            for key in vmt:
+                match key:
+                    # DONT FORGET TO ADD "counter += 1" AT THE END OF CASE IF YOU IMPORT A RESOURCE!!111
+                    case "$basetexture":
+                        resources.append(f'[ext_resource type="Texture2D" uid="uid://halflifintime{counter}" path="res://Materials/{vmt.get(key).replace(backslash, "/")}" id="{counter}_hl"')
+                        properties.append(f'albedo_texture = ExtResource("{counter}_hl")')
+                        counter += 1
+                    case _: print(termcolor.colored(f"Godot might not support {key} - ignoring.", "red"))
+        case _:
+            print(termcolor.colored("Perhaps you missed something.", "yellow"))
+            failcounter.append(file)
+
+    for res in resources:
+        gdmaterial += res + "\n"
+    gdmaterial += "\n"
+    for prop in properties:
+        gdmaterial += prop + "\n"
+    return gdmaterial
+
+
+
+
+for VMT in pathlib.PosixPath("/home/borus/PycharmProjects/macrosandotherstuff/SourceToGodot/materials").rglob("*.vmt"):
+    print(VMT)
+    getVMT = readVMT(VMT)
+    print(getVMT[1])
+    print()
+    file = str(VMT).replace(".vmt", ".tres").replace("/home/borus/PycharmProjects/macrosandotherstuff/SourceToGodot/materials",
+                                                                "/home/borus/Documents/Godot/Half-Life 2: Godot/Materials")
+    os.makedirs(file.replace(os.path.basename(file), ""), exist_ok=True)
+    vmtfile = open(file, "x")
+    vmtfile.write(convertVMT(getVMT[1], getVMT[0]))
+    vmtfile.close()
+    print("------------------------")
+
+print("-----------------------")
+print("-----------------------")
+print("-----------------------")
+print(f"Total Errors: {failcounter.__len__()}")
+print("-----------------------")
+print("MAIN SCREEN TURN ON:")
+for err in failcounter:
+    print(err)
+print("-----------------------")
+print("This is it.")
