@@ -202,7 +202,7 @@ else:
         print(getVMT[1])
         print()
         file = str(VMT).replace(".vmt", ".tres").replace(materialsFolder, saveToFolder)
-        os.makedirs(saveToFolder, exist_ok=True)
+        os.makedirs(file.replace(os.path.basename(file), ""), exist_ok=True)
         try:
             vmtfile = open(file, "x")
             vmtfile.write(convertVMT(getVMT[1], getVMT[0]))
