@@ -59,9 +59,9 @@ def convertVMT(VMTtype: str, vmt: dict):
 
     match VMTtype.lower():
         case "lightmappedgeneric":
+            color = "1.0, 1.0, 1.0"
+            alpha = "1.0"
             for key in vmt:
-                color = "1.0, 1.0, 1.0"
-                alpha = "1.0"
                 match key:
                     # DONT FORGET TO ADD "counter += 1" AT THE END OF CASE IF YOU IMPORT A RESOURCE!!111
                     case "$basetexture":
@@ -96,9 +96,9 @@ def convertVMT(VMTtype: str, vmt: dict):
                     case _: print(termcolor.colored(f"Godot might not support {key} - ignoring.", "yellow"))
             properties.append(f'albedo_color = Color({color}, {alpha})')
         case "vertexlitgeneric":
+            color = "1.0, 1.0, 1.0"
+            alpha = "1.0"
             for key in vmt:
-                color = "1.0, 1.0, 1.0"
-                alpha = "1.0"
                 match key:
                     # DONT FORGET TO ADD "counter += 1" AT THE END OF CASE IF YOU IMPORT A RESOURCE!!111
                     case "$basetexture":
@@ -125,9 +125,9 @@ def convertVMT(VMTtype: str, vmt: dict):
                     case _: print(termcolor.colored(f"Godot might not support {key} - ignoring.", "yellow"))
             properties.append(f'albedo_color = Color({color}, {alpha})')
         case "unlitgeneric":
+            color = "1.0, 1.0, 1.0"
+            alpha = "1.0"
             for key in vmt:
-                color = "1.0, 1.0, 1.0"
-                alpha = "1.0"
                 match key:
                     # DONT FORGET TO ADD "counter += 1" AT THE END OF CASE IF YOU IMPORT A RESOURCE!!111
                     case "$basetexture":
