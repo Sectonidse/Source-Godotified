@@ -2,7 +2,7 @@ import os.path
 import pathlib
 from typing import AnyStr
 import termcolor
-import easygui
+import easygui_qt
 materialsFolder = easygui.diropenbox(title="Select the root folder of Source's VMT materials.")
 saveToFolder = easygui.diropenbox(title="Now, select the Materials folder of Godot game.")
 
