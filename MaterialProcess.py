@@ -94,7 +94,7 @@ def convertVMT(VMTtype: str, vmt: dict):
                     case "$nofog":
                         if vmt.get(key) == 1: properties.append('disable_fog = true')
                     case _: print(termcolor.colored(f"Godot might not support {key} - ignoring.", "yellow"))
-                properties.append(f'albedo_color = Color({color}, {alpha})')
+            properties.append(f'albedo_color = Color({color}, {alpha})')
         case "vertexlitgeneric":
             for key in vmt:
                 color = "1.0, 1.0, 1.0"
@@ -123,7 +123,7 @@ def convertVMT(VMTtype: str, vmt: dict):
                         properties.append(f'normal_texture = ExtResource("{counter}_hl")')
                         counter += 1
                     case _: print(termcolor.colored(f"Godot might not support {key} - ignoring.", "yellow"))
-                properties.append(f'albedo_color = Color({color}, {alpha})')
+            properties.append(f'albedo_color = Color({color}, {alpha})')
         case "unlitgeneric":
             for key in vmt:
                 color = "1.0, 1.0, 1.0"
@@ -143,8 +143,8 @@ def convertVMT(VMTtype: str, vmt: dict):
                     case "$surfaceprop": properties.append(f'resource_name = {vmt.get(key)}')
                     case _:
                         print(termcolor.colored(f"Godot might not support {key} - ignoring.", "yellow"))
-                properties.append(f'albedo_color = Color({color}, {alpha})')
-                properties.append('disable_fog = true')
+            properties.append(f'albedo_color = Color({color}, {alpha})')
+            properties.append('disable_fog = true')
         case "cable":
             for key in vmt:
                 match key:
