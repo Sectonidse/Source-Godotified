@@ -65,11 +65,11 @@ def convertVMT(VMTtype: str, vmt: dict):
                 match key:
                     # DONT FORGET TO ADD "counter += 1" AT THE END OF CASE IF YOU IMPORT A RESOURCE!!111
                     case "$basetexture":
-                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/")}.png" id="{counter}_hl"]')
+                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/").lower()}.png" id="{counter}_hl"]')
                         properties.append(f'albedo_texture = ExtResource("{counter}_hl")')
                         counter += 1
                     case "$detail":
-                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/")}.png" id="{counter}_hl"]')
+                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/").lower()}.png" id="{counter}_hl"]')
                         properties.append('detail_enabled = true')
                         properties.append(f'detail_albedo = ExtResource("{counter}_hl")')
                         counter += 1
@@ -87,7 +87,7 @@ def convertVMT(VMTtype: str, vmt: dict):
                         if vmt.get(key) == 1: properties.append("cull_mode = 2")
                     case "$translucent": properties.append(f"transparency = {vmt.get(key)}")
                     case "$bumpmap":
-                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/")}.png" id="{counter}_hl"]')
+                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/").lower()}.png" id="{counter}_hl"]')
                         properties.append('normal_enabled = true')
                         properties.append(f'normal_texture = ExtResource("{counter}_hl")')
                         counter += 1
@@ -102,11 +102,11 @@ def convertVMT(VMTtype: str, vmt: dict):
                 match key:
                     # DONT FORGET TO ADD "counter += 1" AT THE END OF CASE IF YOU IMPORT A RESOURCE!!111
                     case "$basetexture":
-                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/")}.png" id="{counter}_hl"]')
+                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/").lower()}.png" id="{counter}_hl"]')
                         properties.append(f'albedo_texture = ExtResource("{counter}_hl")')
                         counter += 1
                     case "$detail":
-                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/")}.png" id="{counter}_hl"]')
+                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/").lower()}.png" id="{counter}_hl"]')
                         properties.append('detail_enabled = true')
                         properties.append(f'detail_albedo = ExtResource("{counter}_hl")')
                         counter += 1
@@ -118,7 +118,7 @@ def convertVMT(VMTtype: str, vmt: dict):
                         if vmt.get(key) == 1: properties.append("cull_mode = 2")
                     case "$translucent": properties.append(f"transparency = {vmt.get(key)}")
                     case "$bumpmap":
-                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/")}.png" id="{counter}_hl"]')
+                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/").lower()}.png" id="{counter}_hl"]')
                         properties.append('normal_enabled = true')
                         properties.append(f'normal_texture = ExtResource("{counter}_hl")')
                         counter += 1
@@ -132,7 +132,7 @@ def convertVMT(VMTtype: str, vmt: dict):
                     # DONT FORGET TO ADD "counter += 1" AT THE END OF CASE IF YOU IMPORT A RESOURCE!!111
                     case "$basetexture":
                         resources.append(
-                            f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/")}.png" id="{counter}_hl"]')
+                            f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/").lower()}.png" id="{counter}_hl"]')
                         properties.append(f'albedo_texture = ExtResource("{counter}_hl")')
                         counter += 1
                     case "$color":
@@ -150,13 +150,13 @@ def convertVMT(VMTtype: str, vmt: dict):
                 match key:
                     # DONT FORGET TO ADD "counter += 1" AT THE END OF CASE IF YOU IMPORT A RESOURCE!!111
                     case "$basetexture":
-                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/")}.png" id="{counter}_hl"]')
+                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/").lower()}.png" id="{counter}_hl"]')
                         properties.append(f'albedo_texture = ExtResource("{counter}_hl")')
                         counter += 1
                     case "$nocull":
                         if vmt.get(key) == 1: properties.append("cull_mode = 2")
                     case "$bumpmap":
-                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/")}.png" id="{counter}_hl"]')
+                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/").lower()}.png" id="{counter}_hl"]')
                         properties.append('normal_enabled = true')
                         properties.append(f'normal_texture = ExtResource("{counter}_hl")')
                         counter += 1
@@ -166,7 +166,7 @@ def convertVMT(VMTtype: str, vmt: dict):
                 match key:
                     # DONT FORGET TO ADD "counter += 1" AT THE END OF CASE IF YOU IMPORT A RESOURCE!!111
                     case "$basetexture":
-                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/")}.png" id="{counter}_hl"]')
+                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/").lower()}.png" id="{counter}_hl"]')
                         properties.append(f'albedo_texture = ExtResource("{counter}_hl")')
                         counter += 1
                     case _: print(termcolor.colored(f"Godot might not support {key} - ignoring.", "yellow"))
@@ -175,7 +175,7 @@ def convertVMT(VMTtype: str, vmt: dict):
                 match key:
                     # DONT FORGET TO ADD "counter += 1" AT THE END OF CASE IF YOU IMPORT A RESOURCE!!111
                     case "$basetexture":
-                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/")}.png" id="{counter}_hl"]')
+                        resources.append(f'[ext_resource type="Texture2D" path="res://materials/{vmt.get(key).replace(backslash, "/").lower()}.png" id="{counter}_hl"]')
                         properties.append(f'albedo_texture = ExtResource("{counter}_hl")')
                         counter += 1
                     case _: print(termcolor.colored(f"Godot might not support {key} - ignoring.", "yellow"))
