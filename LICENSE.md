@@ -10,7 +10,7 @@ This license applies to the Source: Godotified (the "Software") created by Boris
    - Attribution should be prominently displayed within the user interface or credits of the project that incorporates the Software.
 
 Example Attribution:
-   "Original Code by Boris Alexandrov - https://secton.neocities.org/"
+   "Original Code by Boris Alexandrov - https://secton.ru"
 
 ### 2. Non-Commercial Use:
 
